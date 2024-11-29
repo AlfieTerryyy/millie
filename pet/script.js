@@ -15,11 +15,11 @@ document.addEventListener('mousemove', (e) => {
 // Make the monkey react to clicks
 monkey.addEventListener('click', () => {
   monkey.classList.add('clicked');
-  monkeyImg.src = 'assets/images/monkey-happy.png'; // Change image to happy monkey
+  monkeyImg.src = './pets/assets/images/monkey-happy.png'; // Change image to happy monkey
   monkeySound.play(); // Play sound when clicked
   setTimeout(() => {
     monkey.classList.remove('clicked');
-    monkeyImg.src = 'assets/images/monkey-idle.png'; // Return to idle image after animation
+    monkeyImg.src = './pets/assets/images/monkey-idle.png'; // Return to idle image after animation
   }, 500);
 });
 
@@ -30,20 +30,20 @@ setInterval(() => {
   
   if (randomAction === 'jump') {
     monkey.classList.add('clicked'); // Make it jump
-    monkeyImg.src = 'assets/images/monkey-jumping.png';
+    monkeyImg.src = './pets/assets/images/monkey-jumping.png';
     setTimeout(() => {
       monkey.classList.remove('clicked');
-      monkeyImg.src = 'assets/images/monkey-idle.png'; // Back to idle after jump
+      monkeyImg.src = './pets/assets/images/monkey-idle.png'; // Back to idle after jump
     }, 500);
   } else if (randomAction === 'dance') {
-    monkeyImg.src = 'assets/images/monkey-dancing.gif'; // Dancing monkey animation
+    monkeyImg.src = './pets/assets/images/monkey-dancing.gif'; // Dancing monkey animation
     setTimeout(() => {
-      monkeyImg.src = 'assets/images/monkey-idle.png'; // Back to idle after dance
+      monkeyImg.src = './pets/assets/images/monkey-idle.png'; // Back to idle after dance
     }, 1000);
   } else if (randomAction === 'eat') {
-    monkeyImg.src = 'assets/images/monkey-eating.gif'; // Monkey eating animation
+    monkeyImg.src = './pets/assets/images/monkey-eating.gif'; // Monkey eating animation
     setTimeout(() => {
-      monkeyImg.src = 'assets/images/monkey-idle.png'; // Back to idle after eating
+      monkeyImg.src = './pets/assets/images/monkey-idle.png'; // Back to idle after eating
     }, 1000);
   }
 }, 3000);
