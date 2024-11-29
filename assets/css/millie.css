@@ -95,3 +95,33 @@ a:hover {
   animation: none; /* Pause animation while dragging */
 }
 
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .shape-1, .shape-2, .shape-3 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .shape-2 {
+    bottom: 20%;
+    right: 10%;
+  }
+
+  .shape-3 {
+    top: 60%;
+    left: 30%;
+  }
+}
