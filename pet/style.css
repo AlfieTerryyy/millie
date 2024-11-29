@@ -1,65 +1,85 @@
 /* General styles */
 body {
-    background: #f0f8ff;
-    font-family: 'Arial', sans-serif;
+    background: white;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif; /* Playful font */
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 .game-container {
     text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-/* Monkey Styles */
+/* Background with carpet */
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #e5c29f 0%, white 40%, white 100%);
+    z-index: -1;
+}
+
+/* Monkey styles */
 #monkey {
-    margin: 20px auto;
-    position: relative;
-    width: 150px;
-    height: 150px;
+    margin: auto;
+    width: 200px;
+    height: 200px;
 }
 
 #monkey img {
     width: 100%;
     height: auto;
+    display: block;
 }
 
 /* UI Styles */
 .ui-container {
-    background: #fff;
-    border-radius: 10px;
+    background: #ffecb3; /* Light yellow for a playful look */
+    border: 3px solid #ff9800; /* Bright orange border */
+    border-radius: 20px;
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    width: 350px;
     margin: 0 auto;
 }
 
 .ui-container h1 {
-    font-size: 1.5rem;
-    color: #333;
+    font-size: 1.8rem;
+    color: #f57c00;
 }
 
 .stats p {
-    margin: 10px 0;
     font-size: 1rem;
-    color: #555;
+    color: #795548;
+    margin: 10px 0;
 }
 
 .controls button {
-    background: #4caf50;
-    color: #fff;
+    background: #ff9800;
+    color: white;
     border: none;
     padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
+    margin: 10px;
+    border-radius: 10px;
     cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .controls button:hover {
-    background: #45a049;
+    background: #f57c00;
+    transform: scale(1.1);
 }
 
 .name-input {
@@ -68,6 +88,31 @@ body {
 
 .name-input input {
     padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid #f57c00;
+    border-radius: 10px;
+    font-size: 1rem;
+    width: 70%;
+}
+
+.name-input button {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.name-input button:hover {
+    background: #f57c00;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .ui-container {
+        width: 90%;
+    }
 }
