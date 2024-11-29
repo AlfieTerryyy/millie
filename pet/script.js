@@ -85,3 +85,10 @@ setInterval(() => {
     updateUI();
     saveStats();
 }, 5000); // Decrease every 5 seconds
+#monkey img {
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    transform: translateY(-10px);
+}
