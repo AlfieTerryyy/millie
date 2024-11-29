@@ -1,49 +1,87 @@
-// script.js
-const monkey = document.getElementById('monkey');
-const monkeyImg = document.getElementById('monkeyImg');
-const monkeySound = document.getElementById('monkeySound');
+// Default monkey stats
+let monkeyStats = {
+    name: "Unnamed",
+    hunger: 100,
+    happiness: 100,
+    cleanliness: 100,
+};
 
-// Make the monkey follow the cursor
-document.addEventListener('mousemove', (e) => {
-  const mouseX = e.clientX;
-  const mouseY = e.clientY;
-  monkey.style.left = mouseX - 50 + 'px'; // Center the monkey at the cursor
-  monkey.style.top = mouseY - 50 + 'px';
-  monkey.classList.add('follow-cursor');
+// DOM Elements
+const monkeyImg = document.getElementById("monkeyImg");
+const monkeyNameElem = document.getElementById("monkeyName");
+const hungerElem = document.getElementById("hunger");
+const happinessElem = document.getElementById("happiness");
+const cleanlinessElem = document.getElementById("cleanliness");
+const nameInput = document.getElementById("nameInput");
+const saveNameBtn = document.getElementById("saveNameBtn");
+
+// Buttons
+const feedBtn = document.getElementById("feedBtn");
+const playBtn = document.getElementById("playBtn");
+const cleanBtn = document.getElementById("cleanBtn");
+
+// Load saved data
+if (localStorage.getItem("monkeyStats")) {
+    monkeyStats = JSON.parse(localStorage.getItem("monkeyStats"));
+    updateUI();
+}
+
+// Save stats to localStorage
+function saveStats() {
+    localStorage.setItem("monkeyStats", JSON.stringify(monkeyStats));
+}
+
+// Update the UI
+function updateUI() {
+    monkeyNameElem.textContent = monkeyStats.name;
+    hungerElem.textContent = monkeyStats.hunger;
+    happinessElem.textContent = monkeyStats.happiness;
+    cleanlinessElem.textContent = monkeyStats.cleanliness;
+}
+
+// Event: Save Name
+saveNameBtn.addEventListener("click", () => {
+    const newName = nameInput.value.trim();
+    if (newName) {
+        monkeyStats.name = newName;
+        updateUI();
+        saveStats();
+        alert("Monkey's name saved!");
+    }
 });
 
-// Make the monkey react to clicks
-monkey.addEventListener('click', () => {
-  monkey.classList.add('clicked');
-  monkeyImg.src = 'assets/images/monkey-happy.png'; // Change image to happy monkey
-  monkeySound.play(); // Play sound when clicked
-  setTimeout(() => {
-    monkey.classList.remove('clicked');
-    monkeyImg.src = 'assets/images/monkey-idle.png'; // Return to idle image after animation
-  }, 500);
+// Event: Feed
+feedBtn.addEventListener("click", () => {
+    monkeyStats.hunger = Math.min(100, monkeyStats.hunger + 10);
+    updateUI();
+    saveStats();
+    monkeyImg.src = "assets/images/monkey-eating.gif";
+    setTimeout(() => (monkeyImg.src = "assets/images/monkey-idle.png"), 1000);
 });
 
-// Make the monkey give a random action every few seconds
+// Event: Play
+playBtn.addEventListener("click", () => {
+    monkeyStats.happiness = Math.min(100, monkeyStats.happiness + 10);
+    updateUI();
+    saveStats();
+    monkeyImg.src = "assets/images/monkey-dancing.gif";
+    setTimeout(() => (monkeyImg.src = "assets/images/monkey-idle.png"), 1000);
+});
+
+// Event: Clean
+cleanBtn.addEventListener("click", () => {
+    monkeyStats.cleanliness = Math.min(100, monkeyStats.cleanliness + 10);
+    updateUI();
+    saveStats();
+    monkeyImg.src = "assets/images/monkey-happy.png";
+    setTimeout(() => (monkeyImg.src = "assets/images/monkey-idle.png"), 1000);
+});
+
+// Decrease stats over time
 setInterval(() => {
-  const actions = ['jump', 'dance', 'eat'];
-  const randomAction = actions[Math.floor(Math.random() * actions.length)];
-  
-  if (randomAction === 'jump') {
-    monkey.classList.add('clicked'); // Make it jump
-    monkeyImg.src = 'assets/images/monkey-jumping.png';
-    setTimeout(() => {
-      monkey.classList.remove('clicked');
-      monkeyImg.src = 'assets/images/monkey-idle.png'; // Back to idle after jump
-    }, 500);
-  } else if (randomAction === 'dance') {
-    monkeyImg.src = 'assets/images/monkey-dancing.gif'; // Dancing monkey animation
-    setTimeout(() => {
-      monkeyImg.src = 'assets/images/monkey-idle.png'; // Back to idle after dance
-    }, 1000);
-  } else if (randomAction === 'eat') {
-    monkeyImg.src = 'assets/images/monkey-eating.gif'; // Monkey eating animation
-    setTimeout(() => {
-      monkeyImg.src = 'assets/images/monkey-idle.png'; // Back to idle after eating
-    }, 1000);
-  }
-}, 3000);
+    monkeyStats.hunger = Math.max(0, monkeyStats.hunger - 1);
+    monkeyStats.happiness = Math.max(0, monkeyStats.happiness - 1);
+    monkeyStats.cleanliness = Math.max(0, monkeyStats.cleanliness - 1);
+    updateUI();
+    saveStats();
+}, 5000); // Decrease every 5 seconds
