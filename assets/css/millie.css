@@ -1,1 +1,97 @@
+/* Importing Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
+
+/* General Styling */
+body {
+  background: radial-gradient(circle at 50% 50%, #f5e1ff, #d8b9ff, #c8a3ff, #aa8eff);
+  color: #5b227c;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+h1, h2 {
+  font-family: 'Pacifico', cursive;
+  color: #7a3db8;
+}
+
+a {
+  color: #7a3db8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #fff;
+  text-shadow: 0px 0px 10px #7a3db8;
+}
+
+/* Button Styling */
+.button {
+  display: inline-block;
+  background: linear-gradient(90deg, #7a3db8, #d8b9ff);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px #c8a3ff, 0 0 20px #aa8eff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #7a3db8, 0 0 40px #c8a3ff;
+}
+
+/* Floating and Draggable Shapes */
+.shape {
+  position: absolute;
+  background: linear-gradient(135deg, #d8b9ff, #c8a3ff);
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: bounce 6s infinite ease-in-out;
+  cursor: grab;
+}
+
+.shape-1 {
+  width: 100px;
+  height: 100px;
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 150px;
+  height: 150px;
+  bottom: 10%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.shape-3 {
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  left: 40%;
+  animation-delay: 4s;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+/* Dragging Effect */
+.shape:active {
+  cursor: grabbing;
+  animation: none; /* Pause animation while dragging */
+}
 
