@@ -1,60 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Welcome to Millie Jones' fun and interactive website!.">
-    <meta name="keywords" content="Millie Jones, interactive website, creative, playful">
-    <meta name="author" content="Alfie Terry">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Millie Jones">
-    <meta property="og:description" content="Welcome to Millie Jones' fun and interactive website!.">
-    <meta property="og:image" content="URL_of_image_for_social_sharing">
-    <meta property="og:url" content="https://milliejones.fun">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Millie Jones">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Millie Jones">
-    <meta name="twitter:description" content="Explore Millie Jones' fun interactive website!.">
-    <meta name="twitter:image" content="URL_of_image_for_twitter_sharing">
-    <link rel="icon" href="./assets/images/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="./assets/css/millie.css">
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "WebSite",
-            "name": "Millie Jones Fun Site",
-            "url": "https://milliejones.fun",
-            "description": "Millie Jones' creative and fun interactive website with games, quizzes, and more.",
-            "publisher": {
-                "@type": "Organization",
-                "name": "Alfie Terry"
-            }
-        }
-    </script>
-    <title>Millie Jones</title>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Millie Jones' fun and interactive website filled with games, quizzes, riddles, and surprises.">
+  <meta name="keywords" content="games, riddles, interactive, Millie Jones, quizzes, fun site">
+  <meta name="author" content="Alfie Terry">
+  <meta property="og:title" content="Millie Jones' Fun Interactive Website">
+  <meta property="og:description" content="Explore Millie Jones' fun and interactive website filled with games, quizzes, riddles, and surprises.">
+  <meta property="og:image" content="URL_of_image_for_site_preview">
+  <meta property="og:url" content="https://milliejones.fun">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.ico">
+  <link rel="canonical" href="https://milliejones.fun">
+  
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Millie Jones Fun Site",
+      "url": "https://milliejones.fun",
+      "description": "Millie Jones' creative and fun interactive website with games, quizzes, and more.",
+      "creator": {
+        "@type": "Person",
+        "name": "Alfie Terry"
+      },
+      "genre": "Interactive, Games",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Alfie Terry"
+      },
+      "image": "URL_of_image_for_site_preview"
+    }
+  </script>
 
+  <title>Millie Jones' Fun Interactive Website - Games, Riddles & More</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body>
   <header class="hero">
     <h1 class="fade-in">Welcome to Millie's Fun Zone!</h1>
-    <p class="fade-in" style="animation-delay: 1s;">
-      A magical space created just for you, filled with games, riddles, and surprises.
-    </p>
+    <h2 class="fade-in" style="animation-delay: 1s;">A magical space created just for you, filled with games, riddles, and surprises.</h2>
     <a href="/quiz" class="button">Take the Quiz</a>
+    <a href="/about" class="button">Learn More About Millie</a>
+    <a href="/contact" class="button">Contact Us</a>
   </header>
 
-  <!-- Floating Shapes -->
-  <div class="shape shape-1"></div>
-  <div class="shape shape-2"></div>
-  <div class="shape shape-3"></div>
+  <nav class="header">
+    <div class="header-container">
+      <a href="/" class="logo">Millie Jones Fun Site</a>
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/games">Games</a></li>
+        <li><a href="/riddles">Riddles</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <h1>Millie’s Riddle Adventure</h1>
+      <p>Join the fun! Solve riddles and win amazing surprises.</p>
+    </section>
+
+    <section class="grid-container">
+      <div class="grid-item">
+        <h3>Interactive Games</h3>
+        <p>Test your skills with various fun-filled games.</p>
+        <a href="/games" class="button">Play Now</a>
+      </div>
+      <div class="grid-item">
+        <h3>Brain Teasers</h3>
+        <p>Engage your mind with challenging riddles.</p>
+        <a href="/riddles" class="button">Try Riddles</a>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>Made for Millie Jones.</p>
-    <p>© 2024 Millie Jones & © 2024 Alfie Terry.</p>
+    <p>&copy; 2024 Millie Jones Fun Site. All rights reserved.</p>
   </footer>
 
-  <script src="./assets/js/millie.js"></script>
+  <!-- Scripts -->
+  <script src="scripts.js"></script>
+
+  <!-- Image with Alt Text -->
+  <img src="logo.png" alt="Millie Jones Logo" class="logo">
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Google Analytics or Other SEO Tools (Optional) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXXX-X');
+  </script>
+
+  <!-- Sitemap URL (example for submission) -->
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 </body>
 </html>
